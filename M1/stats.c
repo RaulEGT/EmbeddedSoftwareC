@@ -19,8 +19,6 @@
  *
  */
 
-
-
 #include <stdio.h>
 #include "stats.h"
 
@@ -36,8 +34,74 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char sortedArray = {};
   /* Statistics and Printing Functions Go Here */
 
+  print_array(test, SIZE);
+  find_mean(test, SIZE);
+  find_maximum(test, SIZE);
+  find_minimum(test, SIZE);
+  sortedArray = sort_array(test, SIZE);
+}
+
+void print_array(unsigned char *array, int count)
+{
+  printf("The array is: ");
+  for(int i=0; i<count; i++)
+  {
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+}
+
+void find_mean(unsigned char *array, int count)
+{
+  long int sum = 0;
+  for(int i=0; i<count; i++)
+  {
+    sum += array[i];
+  }
+  printf("The mean value is: %ld", sum/count);
+  printf("\n");
+
+}
+
+void find_maximum(unsigned char *array, int count)
+{
+  int max = 0;
+  for(int i=0; i<count; i++)
+  {
+    if (array[i] > max)
+    {
+      max = array[i];
+    }
+  }
+  printf("The max value is: %d", max);
+  printf("\n");
+}
+
+void find_minimum(unsigned char *array, int count)
+{
+  int min = 255;
+  for(int i=0; i<count; i++)
+  {
+    if (array[i] < min)
+    {
+      min = array[i];
+    }
+  }
+  printf("The min value is: %d", min);
+  printf("\n");
+}
+
+char sort_array(unsigned char *array, int count)
+{
+
+
+  printf("The sorted array is: %d", 0);
+  printf("\n");
+
+  return 0;
 }
 
 /* Add other Implementation File Code Here */
