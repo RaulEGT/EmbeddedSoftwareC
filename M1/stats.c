@@ -9,13 +9,12 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief C promgram to  calculate max, mean, median, min and sort an array
  *
- * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Raul Gomez
+ * @date 29/09/2024
  *
  */
 
@@ -38,6 +37,7 @@ void main() {
   /* Statistics and Printing Functions Go Here */
 
   print_array(test, SIZE);
+  print_statistics(test, SIZE);
   find_mean(test, SIZE);
   find_maximum(test, SIZE);
   find_minimum(test, SIZE);
@@ -55,19 +55,19 @@ void print_array(unsigned char *array, int count)
   printf("\n");
 }
 
-void find_mean(unsigned char *array, int count)
+int find_mean(unsigned char *array, int count)
 {
   long int sum = 0;
   for(int i=0; i<count; i++)
   {
     sum += array[i];
   }
-  printf("The mean value is: %ld", sum/count);
-  printf("\n");
+  int mean = sum/count;
 
+  return mean;
 }
 
-void find_maximum(unsigned char *array, int count)
+int find_maximum(unsigned char *array, int count)
 {
   int max = 0;
   for(int i=0; i<count; i++)
@@ -77,11 +77,10 @@ void find_maximum(unsigned char *array, int count)
       max = array[i];
     }
   }
-  printf("The max value is: %d", max);
-  printf("\n");
+  return max;
 }
 
-void find_minimum(unsigned char *array, int count)
+int find_minimum(unsigned char *array, int count)
 {
   int min = 255;
   for(int i=0; i<count; i++)
@@ -91,8 +90,8 @@ void find_minimum(unsigned char *array, int count)
       min = array[i];
     }
   }
-  printf("The min value is: %d", min);
-  printf("\n");
+
+  return min;
 }
 
 void  sort_array(unsigned char *array, int count)
@@ -130,7 +129,7 @@ void  sort_array(unsigned char *array, int count)
   printf("\n");
 }
 
-void find_median(unsigned char *array, int count)
+int find_median(unsigned char *array, int count)
 {
   int max_idx = 0;
   unsigned char tempArr[count] = {};
@@ -159,8 +158,21 @@ void find_median(unsigned char *array, int count)
   }
 
   int median = (newArr[count/2] + newArr[count/2 - 1])/2;
-  printf("The median value is: %d", median);
-  printf("\n");
+
+  return median;
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char *array, int count)
+{
+  int min = find_minimum(array, count);
+  int mean = find_mean(array, count);
+  int median = find_median(array, count);
+  int max = find_maximum(array, count);
+
+  printf("The minimun is: %d\nThe mean is: %d\nThe median is: %d\nThe maximum is: %d\n", min, mean, median, max);
+}
+
+/*
+Final revision finished 
+V3 Raul Gomez 29/09/2024
+*/
