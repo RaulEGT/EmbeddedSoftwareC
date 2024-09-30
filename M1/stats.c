@@ -45,6 +45,7 @@ void main() {
   find_median(test, SIZE);
 }
 
+/* This function prints the given array*/
 void print_array(unsigned char *array, int count)
 {
   printf("The array is: ");
@@ -55,6 +56,7 @@ void print_array(unsigned char *array, int count)
   printf("\n");
 }
 
+/* This function calculates the mean value (average) and returns it. Given the array and its size */
 int find_mean(unsigned char *array, int count)
 {
   long int sum = 0;
@@ -67,6 +69,7 @@ int find_mean(unsigned char *array, int count)
   return mean;
 }
 
+/* This function calculates the maximum value and returns it. Given the array and its size */
 int find_maximum(unsigned char *array, int count)
 {
   int max = 0;
@@ -80,6 +83,7 @@ int find_maximum(unsigned char *array, int count)
   return max;
 }
 
+/* This function calculates the minimum value and returns it. Given the array and its size */
 int find_minimum(unsigned char *array, int count)
 {
   int min = 255;
@@ -94,6 +98,7 @@ int find_minimum(unsigned char *array, int count)
   return min;
 }
 
+/* This function sorts the given array and prints it */
 void  sort_array(unsigned char *array, int count)
 {
   int max_idx = 0;
@@ -129,6 +134,7 @@ void  sort_array(unsigned char *array, int count)
   printf("\n");
 }
 
+/* This function calculates the median value and returns it. Given the array and its size */
 int find_median(unsigned char *array, int count)
 {
   int max_idx = 0;
@@ -162,6 +168,7 @@ int find_median(unsigned char *array, int count)
   return median;
 }
 
+/* This function calls the other functions to get the basic statistics of the array and print them. Given the array and its size */
 void print_statistics(unsigned char *array, int count)
 {
   int min = find_minimum(array, count);
