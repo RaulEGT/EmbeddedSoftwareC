@@ -41,7 +41,8 @@ void main() {
   find_mean(test, SIZE);
   find_maximum(test, SIZE);
   find_minimum(test, SIZE);
-  sortedArray = sort_array(test, SIZE);
+  sort_array(test, SIZE);
+  find_median(test, SIZE);
 }
 
 void print_array(unsigned char *array, int count)
@@ -94,14 +95,72 @@ void find_minimum(unsigned char *array, int count)
   printf("\n");
 }
 
-char sort_array(unsigned char *array, int count)
+void  sort_array(unsigned char *array, int count)
 {
+  int max_idx = 0;
+  unsigned char tempArr[count] = {};
+  unsigned char newArr[count] = {};
 
+  /* This was done in order to not delete the main array values*/
+  for(int i = 0; i < count; i++)
+  {
+    tempArr[i] = array[i];
+  }
 
-  printf("The sorted array is: %d", 0);
+  for(int i = 0; i < count; i++)
+  {
+  int max = 0;
+    
+    for(int j = 0; j < count; j++)
+    {
+      if(tempArr[j] > max)
+      {
+        max = tempArr[j];
+        max_idx = j;
+      }
+    }
+    newArr[i] = tempArr[max_idx];
+    tempArr[max_idx] = 0; 
+  }
+  printf("The sorted array is: ");
+  for(int i=0; i < count; i++)
+  {
+    printf("%d ", newArr[i]);
+  }
   printf("\n");
+}
 
-  return 0;
+void find_median(unsigned char *array, int count)
+{
+  int max_idx = 0;
+  unsigned char tempArr[count] = {};
+  unsigned char newArr[count] = {};
+
+  /* This was done in order to not delete the main array values*/
+  for(int i = 0; i < count; i++)
+  {
+    tempArr[i] = array[i];
+  }
+
+  for(int i = 0; i < count; i++)
+  {
+  int max = 0;
+    
+    for(int j = 0; j < count; j++)
+    {
+      if(tempArr[j] > max)
+      {
+        max = tempArr[j];
+        max_idx = j;
+      }
+    }
+    newArr[i] = tempArr[max_idx];
+    tempArr[max_idx] = 0; 
+  }
+
+  int median = (newArr[count/2] + newArr[count/2 - 1])/2;
+  printf("The median value is: %d", median);
+  printf("\n");
 }
 
 /* Add other Implementation File Code Here */

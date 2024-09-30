@@ -50,5 +50,6 @@ void print_array(unsigned char *array, int count);
 void find_mean(unsigned char *array, int count);
 void find_maximum(unsigned char *array, int count);
 void find_minimum(unsigned char *array, int count);
-char sort_array(unsigned char *array, int count);
+void find_median(unsigned char *array, int count);
+void sort_array(unsigned char *array, int count);
 #endif /* __STATS_H__ */
